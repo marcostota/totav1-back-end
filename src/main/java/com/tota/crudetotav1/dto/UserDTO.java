@@ -6,14 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequestDTO {
+@AllArgsConstructor
+@Builder
+public class UserDTO {
 
+	private Long id;
 	private String username;
-	private String email;
-	private String password;
-	private String phone;
 	private String name;
+	private String email;
+	private String phone;
 }

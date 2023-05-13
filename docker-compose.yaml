@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    container_name: mysqldb-container
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: employeedb
+
+  back-end:
+    container_name: back-end-container
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysqldb
+
+  front-end:
+    container_name: front-end-container
+    build:
+      context: ../my-html
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysqldb
+      - back-end

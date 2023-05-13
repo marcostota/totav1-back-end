@@ -24,7 +24,10 @@ public class SecurityConfig {
 	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeHttpRequests().requestMatchers("/totapi/auth/**").permitAll().anyRequest()
+		http.csrf().disable().authorizeHttpRequests()
+				.requestMatchers("/totapi/auth/**").permitAll()
+				.requestMatchers("/totapi/user/**").permitAll()
+				.anyRequest()
 				.authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.authenticationProvider(authenticationProvider)
 				.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class).logout()

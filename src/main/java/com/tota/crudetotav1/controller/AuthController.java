@@ -61,4 +61,5 @@ public class AuthController {
 			return new ResponseEntity<>("token is not valid!", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
+	
 }

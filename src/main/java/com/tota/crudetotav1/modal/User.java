@@ -36,10 +36,11 @@ public class User implements UserDetails{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	private String name;
 	private String username;
 	private String email;
 	private String password;
-	
+	private String phone;
 	
 	@Enumerated(EnumType.STRING)
 	private UserRole role;

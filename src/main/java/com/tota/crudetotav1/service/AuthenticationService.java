@@ -30,8 +30,12 @@ public class AuthenticationService {
 
 	public void register(RegisterRequestDTO requestDTO) {
 
-		var user = User.builder().username(requestDTO.getUsername()).email(requestDTO.getEmail())
-				.password(passwordEncoder.encode(requestDTO.getPassword())).role(UserRole.USER).build();
+		var user = User.builder()
+				.username(requestDTO.getUsername())
+				.email(requestDTO.getEmail())
+				.password(passwordEncoder.encode(requestDTO.getPassword()))
+				.role(UserRole.USER)
+				.build();
 //		var savedUser = userRepositiory.save(user);
 //		var jwtToken = jwtService.generateToken(user);
 //			saveUserToken(savedUser, jwtToken);
